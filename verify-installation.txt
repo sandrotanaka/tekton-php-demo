@@ -1,0 +1,13 @@
+oc api-resources --api-group=tekton.dev
+
+oc auth can-i create pipeline.tekton.dev
+
+oc auth can-i create Pipeline
+
+oc auth can-i create Task
+
+oc auth can-i create PipelineResource
+
+oc auth can-i create PipelineRun
+
+oc get serviceaccount pipeline
