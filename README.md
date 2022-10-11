@@ -1,13 +1,13 @@
 
 # CI/CD Demo(PHP Application) with Tekton Pipelines
 
+## Creating Openshift projects(CICD and APP_DEV)
+
     $ cicd_prj=cicd-app-php
     $ dev_prj=php-app-dev
 
     $ oc new-project $dev_prj
     $ oc new-project $cicd_prj
-
-    $ oc create -f setup/sonarqube.yaml
     
 
 ## Configure service account permissions for pipeline
@@ -17,8 +17,9 @@
     $ oc policy add-role-to-user system:image-puller system:serviceaccount:$stage_prj:pipeline -n $dev_prj
     
 
-## Create Sonarqube variables
+## Sonarqube Install and Configuration 
 
+    $ oc create -f setup/sonarqube.yaml
     $ oc create configmap sonarconfig --from-file=config/sonar-project.properties
     
 
